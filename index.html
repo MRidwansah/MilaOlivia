@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IDP Profesional TI - Muhamad Ridwansah</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Fraunces:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0B1E3D;
+    --navy-mid: #162d52;
+    --blue: #1D6FDB;
+    --blue-light: #E8F1FD;
+    --teal: #0D9E8A;
+    --teal-light: #E0F5F2;
+    --amber: #E8830A;
+    --amber-light: #FEF3E2;
+    --red: #D63B3B;
+    --red-light: #FDEAEA;
+    --green: #1A8A5A;
+    --green-light: #E4F5EC;
+    --text: #1A2533;
+    --text-muted: #5A6A7E;
+    --border: #D9E2EE;
+    --bg: #F2F5FA;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 36px 24px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .page {
+    max-width: 860px;
+    margin: auto;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--navy);
+    border-radius: 16px;
+    padding: 32px 36px 28px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: rgba(29,111,219,0.18);
+  }
+
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 120px;
+    width: 150px; height: 150px;
+    border-radius: 50%;
+    background: rgba(13,158,138,0.12);
+  }
+
+  .header-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    position: relative; z-index: 1;
+  }
+
+  .header-eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 6px;
+  }
+
+  .header-name {
+    font-family: 'Fraunces', serif;
+    font-size: 30px;
+    font-weight: 900;
+    color: #FFFFFF;
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+
+  .header-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    font-weight: 300;
+  }
+
+  .header-badge {
+    background: rgba(29,111,219,0.3);
+    border: 1px solid rgba(29,111,219,0.5);
+    color: #A8C8F8;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 7px 16px;
+    border-radius: 24px;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .profile-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    position: relative; z-index: 1;
+  }
+
+  .profile-cell {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    padding: 10px 14px;
+  }
+
+  .profile-cell .lbl {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 4px;
+  }
+
+  .profile-cell .val {
+    font-size: 13px;
+    font-weight: 500;
+    color: #FFFFFF;
+    line-height: 1.3;
+  }
+
+  /* ── SECTION ── */
+  .section {
+    background: var(--white);
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    padding: 24px 28px;
+    margin-bottom: 16px;
+  }
+
+  .sec-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+
+  .sec-num {
+    width: 28px; height: 28px;
+    background: var(--navy);
+    color: #fff;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .sec-title {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+  }
+
+  .sec-divider {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── VISI ── */
+  .visi-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .visi-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+
+  .visi-card.full { grid-column: 1 / -1; }
+
+  .visi-card .vc-lbl {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--blue);
+    margin-bottom: 6px;
+  }
+
+  .visi-card .vc-val {
+    font-size: 13.5px;
+    color: var(--text);
+    line-height: 1.55;
+  }
+
+  /* ── AUDIT ── */
+  .audit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .audit-card {
+    border-radius: 10px;
+    padding: 16px;
+    border: 1px solid;
+  }
+
+  .audit-card.strength {
+    background: #E8F1FD;
+    border-color: #B5D0F7;
+  }
+
+  .audit-card.improve {
+    background: #EEF4FE;
+    border-color: #C4D8F9;
+  }
+
+  .audit-card .ac-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+  }
+
+  .audit-card.strength .ac-title { color: #1558C0; }
+  .audit-card.improve .ac-title { color: #1D6FDB; }
+
+  .ac-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .strength .ac-dot { background: #1558C0; }
+  .improve .ac-dot { background: #1D6FDB; }
+
+  .audit-card ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .audit-card ul li {
+    font-size: 13px;
+    line-height: 1.55;
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    padding-left: 12px;
+    position: relative;
+  }
+
+  .audit-card ul li:last-child { border-bottom: none; }
+
+  .audit-card ul li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    font-size: 10px;
+    top: 7px;
+  }
+
+  .strength ul li::before { color: #1558C0; }
+  .improve ul li::before { color: #1D6FDB; }
+
+  /* ── GAP TABLE ── */
+  .gap-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  .gap-table thead tr {
+    background: var(--navy);
+  }
+
+  .gap-table th {
+    padding: 11px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: rgba(255,255,255,0.7);
+    text-align: left;
+  }
+
+  .gap-table th:first-child { border-radius: 8px 0 0 8px; }
+  .gap-table th:last-child { border-radius: 0 8px 8px 0; }
+
+  .gap-table td {
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+
+  .gap-table tbody tr:last-child td { border-bottom: none; }
+  .gap-table tbody tr:nth-child(even) td { background: var(--bg); }
+
+  .lvl-badge {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .lvl-low { background: var(--red-light); color: var(--red); }
+  .lvl-mid { background: var(--amber-light); color: var(--amber); }
+  .lvl-ok { background: var(--green-light); color: var(--green); }
+
+  /* ── ACTION PLAN ── */
+  .action-group-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+    margin-top: 16px;
+  }
+
+  .action-group-title:first-child { margin-top: 0; }
+
+  .action-group-title .ag-bar {
+    display: block;
+    width: 4px; height: 16px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .ag-pendek { color: var(--blue); }
+  .ag-pendek .ag-bar { background: var(--blue); }
+  .ag-menengah { color: var(--amber); }
+  .ag-menengah .ag-bar { background: var(--amber); }
+
+  .action-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+    margin-bottom: 4px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .action-table thead tr { background: var(--bg); }
+
+  .action-table th {
+    padding: 9px 12px;
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .action-table td {
+    padding: 10px 12px;
+    vertical-align: top;
+    line-height: 1.5;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .action-table tbody tr:last-child td { border-bottom: none; }
+
+  .deadline-pill {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11.5px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .dl-blue { background: var(--blue-light); color: var(--blue); }
+  .dl-green { background: var(--green-light); color: var(--green); }
+
+  /* ── RISIKO ── */
+  .risk-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .risk-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--red);
+    border-radius: 0 0 10px 10px;
+    padding: 14px 16px;
+  }
+
+  .risk-card .rc-problem {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 8px;
+    line-height: 1.45;
+  }
+
+  .risk-card .rc-solution-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--green);
+    margin-bottom: 4px;
+  }
+
+  .risk-card .rc-solution {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center;
+    font-size: 11.5px;
+    color: var(--text-muted);
+    margin-top: 28px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-top">
+      <div>
+        <div class="header-eyebrow">Lembar Kerja &nbsp;·&nbsp; Individual Development Plan (IDP) Profesional TI</div>
+        <div class="header-name">Muhamad Ridwansah</div>
+        <div class="header-sub">Mahasiswa Semester 4 &nbsp;·&nbsp; 25 Mei 2026</div>
+      </div>
+      <div class="header-badge">IT Support Specialist</div>
+    </div>
+    <div class="profile-grid">
+      <div class="profile-cell">
+        <div class="lbl">Semester</div>
+        <div class="val">4</div>
+      </div>
+      <div class="profile-cell">
+        <div class="lbl">Tanggal penyusunan</div>
+        <div class="val">25 Mei 2026</div>
+      </div>
+      <div class="profile-cell">
+        <div class="lbl">Target peran</div>
+        <div class="val">IT Support L1 – Entuity / IT Support (Mobile)</div>
+      </div>
+      <div class="profile-cell">
+        <div class="lbl">Target perusahaan</div>
+        <div class="val">PT. Metrodata Electronics Tbk.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1. VISI -->
+  <div class="section">
+    <div class="sec-header">
+      <div class="sec-num">1</div>
+      <span class="sec-title">Visi Karier Global</span>
+      <div class="sec-divider"></div>
+    </div>
+    <div class="visi-grid">
+      <div class="visi-card">
+        <div class="vc-lbl">Target Peran / Profesi Utama</div>
+        <div class="vc-val">IT Support Specialist / Network Operations Center (NOC) Engineer.</div>
+      </div>
+      <div class="visi-card">
+        <div class="vc-lbl">Target Industri / Perusahaan</div>
+        <div class="vc-val">Perusahaan penyedia solusi Teknologi Informasi (IT) berskala nasional atau multinasional (misal: PT. Metrodata Electronics Tbk).</div>
+      </div>
+      <div class="visi-card full">
+        <div class="vc-lbl">Visi Karier 3–5 Tahun ke Depan</div>
+        <div class="vc-val">Menjadi profesional IT Support yang handal dalam menjaga stabilitas infrastruktur jaringan berskala enterprise, ahli dalam menganalisis masalah menggunakan berbagai perangkat pemantauan, serta memiliki etika pelayanan yang baik untuk memastikan kelancaran operasional klien.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. AUDIT -->
+  <div class="section">
+    <div class="sec-header">
+      <div class="sec-num">2</div>
+      <span class="sec-title">Audit Kompetensi</span>
+      <div class="sec-divider"></div>
+    </div>
+    <div class="audit-grid">
+      <div class="audit-card strength">
+        <div class="ac-title"><span class="ac-dot"></span>Kekuatan Saat Ini</div>
+        <ul>
+          <li>Memiliki pemahaman yang baik terkait troubleshooting dasar perangkat keras (PC/Laptop) dan instalasi OS.</li>
+          <li>Mengetahui konsep dasar jaringan komputer (TCP/IP, LAN, dan routing dasar).</li>
+          <li>Memiliki kemampuan bekerja sama dalam tim dan fleksibel untuk bekerja secara mobile.</li>
+        </ul>
+      </div>
+      <div class="audit-card improve">
+        <div class="ac-title"><span class="ac-dot"></span>Yang Perlu Ditingkatkan</div>
+        <ul>
+          <li>Belum mendalami penggunaan perangkat lunak pemantau jaringan (network monitoring tools) skala enterprise seperti Entuity.</li>
+          <li>Kurangnya pengalaman dalam melakukan manajemen insiden sistematis dan analisis awal yang mendalam secara proaktif.</li>
+          <li>Perlu meningkatkan pemahaman terkait alur eskalasi tiket IT yang efektif di lingkungan perusahaan.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. GAP ANALYSIS -->
+  <div class="section">
+    <div class="sec-header">
+      <div class="sec-num">3</div>
+      <span class="sec-title">Analisis Kesenjangan</span>
+      <div class="sec-divider"></div>
+    </div>
+    <table class="gap-table">
+      <thead>
+        <tr>
+          <th>Syarat Kualifikasi</th>
+          <th>Level Saat Ini (0–10)</th>
+          <th>Gap Yang Harus Dikejar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>First-level technical support &amp; incident management</td>
+          <td><span class="lvl-badge lvl-ok">6 / 10</span></td>
+          <td>Perlu mempelajari standar Service Level Agreement (SLA) dan cara merespons insiden secara profesional dan terukur.</td>
+        </tr>
+        <tr>
+          <td>Proactive network monitoring menggunakan perangkat seperti Entuity</td>
+          <td><span class="lvl-badge lvl-low">3 / 10</span></td>
+          <td>Belum memiliki pengalaman praktis memantau trafik jaringan; perlu belajar merespons alerting dan mendiagnosis status jaringan.</td>
+        </tr>
+        <tr>
+          <td>Analisis awal mendalam &amp; koordinasi eskalasi efektif</td>
+          <td><span class="lvl-badge lvl-mid">4 / 10</span></td>
+          <td>Kurangnya jam terbang dalam menyaring masalah (filtering tiket) sebelum dieskalasi ke tim engineer level 2.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 4. ACTION PLAN -->
+  <div class="section">
+    <div class="sec-header">
+      <div class="sec-num">4</div>
+      <span class="sec-title">Rencana Aksi (SMART Action Plan)</span>
+      <div class="sec-divider"></div>
+    </div>
+
+    <div class="action-group-title ag-pendek">
+      <span class="ag-bar"></span>
+      Target Jangka Pendek (1–2 bulan)
+    </div>
+    <table class="action-table">
+      <thead>
+        <tr>
+          <th style="width:32%">Langkah Aksi Spesifik</th>
+          <th style="width:28%">Sumber Daya Yang Dibutuhkan</th>
+          <th style="width:26%">Sistem Dukungan / Mentor</th>
+          <th style="width:14%">Deadline</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Mempelajari konsep Network Monitoring dengan menginstal tools open-source (seperti Zabbix atau PRTG) di komputer lokal.</td>
+          <td>Laptop spesifikasi memadai, software pemantau jaringan, dokumentasi teknis, dan tutorial YouTube.</td>
+          <td>Forum diskusi IT (StackOverflow / komunitas jaringan), Dosen mata kuliah Jaringan.</td>
+          <td><span class="deadline-pill dl-blue">26 Jul 2026</span></td>
+        </tr>
+        <tr>
+          <td>Membaca dan mensimulasikan alur ITIL (Information Technology Infrastructure Library) terkait Manajemen Insiden dasar.</td>
+          <td>Artikel kerangka kerja ITIL, tools ticketing simulasi (open-source seperti osTicket).</td>
+          <td>Rekan mahasiswa untuk simulasi pelaporan masalah IT.</td>
+          <td><span class="deadline-pill dl-blue">15 Agu 2026</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="action-group-title ag-menengah">
+      <span class="ag-bar"></span>
+      Target Jangka Menengah (6–12 bulan)
+    </div>
+    <table class="action-table">
+      <thead>
+        <tr>
+          <th style="width:32%">Langkah Aksi Spesifik</th>
+          <th style="width:28%">Sumber Daya Yang Dibutuhkan</th>
+          <th style="width:26%">Sistem Dukungan / Mentor</th>
+          <th style="width:14%">Deadline</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Mengikuti sertifikasi dasar penunjang profesi IT Support (misal: Google IT Support Professional Certificate atau Cisco CCNA pemula).</td>
+          <td>Biaya kursus/ujian sertifikasi, koneksi internet untuk belajar mandiri.</td>
+          <td>Platform e-learning, informasi beasiswa sertifikasi dari pemerintah atau kampus.</td>
+          <td><span class="deadline-pill dl-green">Des 2026</span></td>
+        </tr>
+        <tr>
+          <td>Mendaftar magang/Kerja Praktik di posisi IT Helpdesk, Technical Support, atau NOC.</td>
+          <td>CV ATS friendly, portofolio lab simulasi jaringan.</td>
+          <td>Pusat karier kampus, kakak tingkat yang sudah magang, koneksi LinkedIn.</td>
+          <td><span class="deadline-pill dl-green">Feb 2027</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 5. MANAJEMEN RISIKO -->
+  <div class="section">
+    <div class="sec-header">
+      <div class="sec-num">5</div>
+      <span class="sec-title">Manajemen Risiko Karier</span>
+      <div class="sec-divider"></div>
+    </div>
+    <div class="risk-grid">
+      <div class="risk-card">
+        <div class="rc-problem">Tidak bisa mengakses perangkat lunak spesifik seperti "Entuity" karena memerlukan lisensi enterprise yang mahal.</div>
+        <div class="rc-solution-label">Rencana Mitigasi (Plan B)</div>
+        <div class="rc-solution">Fokus menguasai tools monitoring open-source yang mudah didapat, karena secara konsep (penggunaan protokol SNMP, pembacaan grafik trafik, notifikasi alert) hampir identik dengan tools berbayar manapun.</div>
+      </div>
+      <div class="risk-card">
+        <div class="rc-problem">Gagal lolos seleksi magang karena kurang pengalaman.</div>
+        <div class="rc-solution-label">Rencana Mitigasi (Plan B)</div>
+        <div class="rc-solution">Fokus bangun portofolio lab mandiri + aktif di komunitas IT lokal (INOTEK, komunitas Cisco Indonesia).</div>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+</body>
+</html>
